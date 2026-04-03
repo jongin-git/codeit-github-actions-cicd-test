@@ -1,0 +1,20 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: demo-app
+
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
+
+
+management:
+  endpoint:
+    web:
+      exposure:
+        include: health, info
+  endpoints:
+    health:
+      show-details: never

@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:devdb;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update        # 개발 편의를 위해 자동 스키마 업데이트
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+# 개발은 디버깅이 중요하므로 로깅을 상세하게
+logging:
+  level:
+    root: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE

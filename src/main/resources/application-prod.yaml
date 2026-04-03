@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+  jpa:
+    hibernate:
+      ddl-auto: create      # 운영은 스키마 변경 금지, 존재 여부만 검증
+    show-sql: false
+
+# 운영 로깅: 과도한 로그는 비용/성능 저하를 유발
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    org.hibernate: WARN
+
+# 헬스 정보는 최소화(외부 노출 주의)
+management:
+  endpoint:
+    health:
+      show-details: never
