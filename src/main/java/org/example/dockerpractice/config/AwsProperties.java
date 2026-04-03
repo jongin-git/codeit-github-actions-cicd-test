@@ -1,8 +1,12 @@
 package org.example.dockerpractice.config;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+@Getter
+@Setter
 @Configuration
 @ConfigurationProperties(prefix = "aws")
 public class AwsProperties {
@@ -10,6 +14,8 @@ public class AwsProperties {
   private String region;
   private S3 s3 = new S3();
 
+  @Getter
+  @Setter
   public static class Credentials {
     private String accessKey;  // env에서 주입
     private String secretKey;  // env에서 주입
@@ -19,6 +25,8 @@ public class AwsProperties {
     public String getSecretKey() { return secretKey; }
     public void setSecretKey(String secretKey) { this.secretKey = secretKey; }
   }
+  @Getter
+  @Setter
   public static class S3 {
     private String bucket;
     public String getBucket() { return bucket; }
