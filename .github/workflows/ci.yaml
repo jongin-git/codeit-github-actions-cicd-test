@@ -21,3 +21,8 @@ jobs:               # 실행할 작업(job)들을 정의
         run: chmod +x gradlew
       - name: 빌드 및 테스트
         run: ./gradlew clean build    # Gradle 빌드 및 테스트 실행 (clean 후 build)
+
+      - name: Docker build 및 커밋 해시태그 설정
+        run: |
+          IMAGE_TAG=@{GITHUB_SHA::7}
+          docker build -t myapp$IMAGE_TAG
