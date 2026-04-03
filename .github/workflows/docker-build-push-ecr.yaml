@@ -89,3 +89,4 @@ jobs:
             --cluster ${{ secrets.ECS_CLUSTER }} \
             --services ${{ secrets.ECS_SERVICE }} \
             --query "services[0].deployments"
+      # 15) 수정
